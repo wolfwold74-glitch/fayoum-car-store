@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوبيزل السيارات | بيع واشتري براحتك</title>
+    <style>
+        :root { --primary-color: #2b2e35; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f2f4f5; color: #002f34; }
+        
+        /* الهيدر المتفاعل */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 1.5s ease;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            color: white;
+        }
+
+        .logo { font-size: 28px; font-weight: bold; cursor: pointer; }
+        
+        .search-container { flex-grow: 1; margin: 0 20px; display: flex; }
+        .search-container input { 
+            width: 100%; padding: 12px; border: none; 
+            border-radius: 4px 0 0 4px; outline: none; 
+        }
+        .search-container button { 
+            padding: 0 20px; background: #002f34; color: white; 
+            border: none; border-radius: 0 4px 4px 0; cursor: pointer; 
+        }
+
+        /* منطقة العرض (مثل دوبيزل) */
+        .main-content { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
+        .section-title { font-size: 22px; margin-bottom: 20px; border-right: 5px solid #002f34; padding-right: 10px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        
+        .card { 
+            background: white; border-radius: 8px; overflow: hidden; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.3s;
+            position: relative; cursor: pointer;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        
+        .card-content { padding: 15px; }
+        .price { font-size: 20px; font-weight: bold; color: #002f34; margin: 5px 0; }
+        .car-name { font-size: 16px; color: #406367; margin-bottom: 10px; }
+        .location { font-size: 12px; color: #7f9799; border-top: 1px solid #f2f4f5; pt: 10px; display: block; margin-top: 10px;}
+
+        .btn-call {
+            display: block; width: 100%; padding: 10px; margin-top: 10px;
+            background: #002f34; color: white; text-align: center;
+            text-decoration: none; border-radius: 4px; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="dynamic-header">
+        <div class="logo">Dubizzle Cars</div>
+        <div class="search-container">
+            <input type="text" placeholder="ابحث عن ماركة، موديل، أو مدينة...">
+            <button>بحث</button>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <h2 class="section-title">أحدث الإعلانات</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&q=80&w=500" alt="Car">
+                <div class="card-content">
+                    <div class="price">1,450,000 ج.م</div>
+                    <div class="car-name">BMW 320i - موديل 2023 - كسر زيرو</div>
+                    <span class="location">📍 القاهرة، مدينة نصر • منذ ٢ ساعة</span>
+                    <a href="#" class="btn-call">اتصل بالبائع</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=500" alt="Car">
+                <div class="card-content">
+                    <div class="price">890,000 ج.م</div>
+                    <div class="car-name">تويوتا كورولا 2022 - فئة ثانية</div>
+                    <span class="location">📍 الإسكندرية، سموحة • منذ ٥ ساعات</span>
+                    <a href="#" class="btn-call">اتصل بالبائع</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=500" alt="Car">
+                <div class="card-content">
+                    <div class="price">3,200,000 ج.م</div>
+                    <div class="car-name">بورشه كايين - حالة نادرة</div>
+                    <span class="location">📍 الجيزة، الشيخ زايد • منذ يوم</span>
+                    <a href="#" class="btn-call">اتصل بالبائع</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تغيير لون الهيدر بشكل احترافي (درجات داكنة وفخمة)
+        const header = document.getElementById('dynamic-header');
+        const colors = ['#002f34', '#1a3a3a', '#2c3e50', '#004d40', '#34495e']; 
+        let index = 0;
+
+        function updateHeaderColor() {
+            header.style.backgroundColor = colors[index];
+            index = (index + 1) % colors.length;
+        }
+
+        setInterval(updateHeaderColor, 4000); // تغيير كل 4 ثواني لراحة العين
+        updateHeaderColor();
+    </script>
+</body>
+</html>
